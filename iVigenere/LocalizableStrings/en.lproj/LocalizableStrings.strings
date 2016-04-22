@@ -1,0 +1,19 @@
+/* 
+  LocalizableStrings.strings
+  iVigenere
+
+  Created by Vincent PUGET on 22/04/2016.
+  Copyright © 2016 Vincent PUGET. All rights reserved.
+*/
+
+"x" = "X";
+"encrypt" = "ENCRYPT";
+"decrypt" = "DECRYPT";
+"matrix" = "MATRIX";
+"key" = "Key";
+"textHere" = "Here the text to be encrypted";
+"matrixName" = "Matrix name";
+"save" = "SAVE";
+"cancel" = "CANCEL";
+"ok" = "OK";
+"alertMatrixIsEmpty" = "Your matrix is empty ! Please fill it";

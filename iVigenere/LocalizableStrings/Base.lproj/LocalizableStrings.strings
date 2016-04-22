@@ -1,0 +1,20 @@
+/* 
+  LocalizableStrings.strings
+  iVigenere
+
+  Created by Vincent PUGET on 22/04/2016.
+  Copyright © 2016 Vincent PUGET. All rights reserved.
+*/
+
+"x" = "X";
+"encrypt" = "CRYPTER";
+"decrypt" = "DÉCRYPTER";
+"matrix" = "MATRICE";
+"key" = "Clef";
+"textHere" = "Ici le texte à crypter";
+"matrixName" = "Nom de la matrice";
+"save" = "ENREGISTRER";
+"cancel" = "ANNULER";
+"ok" = "OK";
+"alertMatrixIsEmpty" = "Votre matrice de cryptage est vide, veuillez la remplir !";
+"warningMissingCharMatrix" = "Waring : un caractère à crypter n'est pas dans la matrice.";
