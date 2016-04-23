@@ -84,22 +84,22 @@ extension MainViewController {
   
   func alertMatrixEmpty()
   {
-//    let alert: UIAlert = NSAlert()
-//    alert.messageText = NSLocalizedString("alertMatrixIsEmpty", tableName: "LocalizableStrings", comment: "alertMatrixIsEmpty")
-//    alert.informativeText = "Vigenere"
-//    alert.alertStyle = UIAlertStyle.WarningAlertStyle
-//    alert.addButtonWithTitle(NSLocalizedString("ok", tableName: "LocalizableStrings", comment: "ok"))
-//    alert.addButtonWithTitle(NSLocalizedString("cancel", tableName: "LocalizableStrings", comment: "cancel"))
-//    let response = alert.runModal()
-//    
-//    if(response == NSAlertFirstButtonReturn)
-//    {
-//      self.performSegueWithIdentifier("segue_MatrixViewController", sender: self)
-//    }
-//    else if(response == NSAlertSecondButtonReturn)
-//    {
-//      NSLog("Annuler")
-//    }
+    let alertController:UIAlertController! = UIAlertController(title: "iVigenere", message: NSLocalizedString("alertMatrixIsEmpty", tableName: "LocalizableStrings", comment: "alertMatrixIsEmpty"), preferredStyle: .Alert)
+    let okAction:UIAlertAction! = UIAlertAction(title: NSLocalizedString("ok", tableName: "LocalizableStrings", comment: "ok"), style: UIAlertActionStyle.Default)
+    {
+      UIAlertAction in
+      NSLog("OK Pressed")
+      //self.performSegueWithIdentifier("segue_MatrixViewController", sender: self)
+    }
+    
+    let cancelAction:UIAlertAction! = UIAlertAction(title: NSLocalizedString("cancel", tableName: "LocalizableStrings", comment: "cancel"), style: UIAlertActionStyle.Default)
+    {
+      UIAlertAction in
+      NSLog("cancel Pressed")
+      //self.performSegueWithIdentifier("segue_MatrixViewController", sender: self)
+    }
+    alertController.addAction(cancelAction)
+    alertController.addAction(okAction)
   }
   
   func tfHandler(textField: UITextField){
@@ -145,7 +145,6 @@ extension MainViewController: EngineProtocol{
   
   func outputUpdated(output:String!)
   {
-    L.v(output);
     self.tvOutput.text = output
   }
 }
