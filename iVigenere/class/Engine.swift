@@ -30,7 +30,7 @@ class Engine: NSObject {
   
   func startCreateMatrixProcess()
   {
-    //        DataSingleton.instance.dropAllMatrix();
+//    DataSingleton.instance.dropAllMatrix();
     
     self.matrixObj = self.getMatrixObject()
     
