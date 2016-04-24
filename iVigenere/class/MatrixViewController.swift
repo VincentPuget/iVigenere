@@ -37,6 +37,9 @@ class MatrixViewController: UIViewController {
     self.tvMatrix.textColor = UIColor.whiteColor()
     
     self.tfMatrixName.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("matrixName", tableName: "LocalizableStrings", comment: "Matrix name"), attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+    
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.dismissKeyboard))
+    view.addGestureRecognizer(tap)
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -65,10 +68,14 @@ class MatrixViewController: UIViewController {
     }
   }
   
+  func dismissKeyboard() {
+    self.view.endEditing(true)
+  }
   
   @IBAction func IBA_buttonCancel(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: {})
   }
+  
   @IBAction func IBA_buttonValidate(sender: AnyObject) {
     var saveIsOk = false;
     if(self.isNewMatrix == true)

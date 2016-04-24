@@ -52,6 +52,9 @@ class MainViewController: UIViewController {
     self.scCrypt.setTitle(NSLocalizedString("encrypt", tableName: "LocalizableStrings", comment: "encrypt"), forSegmentAtIndex: 0)
     self.scCrypt.setTitle(NSLocalizedString("decrypt", tableName: "LocalizableStrings", comment: "decrypt"), forSegmentAtIndex: 1)
     
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.dismissKeyboard))
+    view.addGestureRecognizer(tap)
+    
     engine = Engine()
     engine.delegate = self;
     engine.startCreateMatrixProcess();
@@ -69,6 +72,10 @@ class MainViewController: UIViewController {
     
     
     self.tfKey.addTarget(self, action: #selector(UITextInputDelegate.textDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+  }
+  
+  func dismissKeyboard() {
+    self.view.endEditing(true)
   }
   
   override func prepareForSegue(segue:(UIStoryboardSegue!), sender: AnyObject!)

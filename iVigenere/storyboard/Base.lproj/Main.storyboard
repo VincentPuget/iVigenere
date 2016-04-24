@@ -29,9 +29,12 @@
                                     <action selector="IBA_scCrypt:" destination="BYZ-38-t0r" eventType="valueChanged" id="I0w-WA-y53"/>
                                 </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gmt-yL-87j">
-                                <rect key="frame" x="20" y="173" width="280" height="120"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gmt-yL-87j">
+                                <rect key="frame" x="16" y="173" width="288" height="120"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="A9L-Um-uzf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -40,8 +43,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pj-rM-KBD">
-                                <rect key="frame" x="254" y="301" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pj-rM-KBD">
+                                <rect key="frame" x="270" y="301" width="34" height="30"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="copy"/>
                                 <connections>
@@ -56,7 +59,7 @@
                                     <segue destination="Q5L-mD-EzX" kind="presentation" identifier="segue_MatrixViewController" id="zff-gd-43b"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-cX-Q5b">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-cX-Q5b">
                                 <rect key="frame" x="16" y="330" width="288" height="130"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -69,9 +72,18 @@
                             <constraint firstItem="4RM-e6-f6c" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3Bw-SE-9un"/>
                             <constraint firstItem="Y8H-OF-lhb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4UA-11-k3t"/>
                             <constraint firstItem="4RM-e6-f6c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5We-hi-dxC"/>
+                            <constraint firstItem="gmt-yL-87j" firstAttribute="top" secondItem="Y8H-OF-lhb" secondAttribute="bottom" constant="15" id="82K-kr-dNh"/>
                             <constraint firstItem="Y8H-OF-lhb" firstAttribute="top" secondItem="4RM-e6-f6c" secondAttribute="bottom" constant="27" id="8Gc-kn-qSQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HPb-cX-Q5b" secondAttribute="bottom" constant="20" id="8uk-mU-u91"/>
+                            <constraint firstItem="gmt-yL-87j" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ddk-Rx-be9"/>
+                            <constraint firstItem="8pj-rM-KBD" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="N6a-5N-7Gm"/>
+                            <constraint firstItem="HPb-cX-Q5b" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WZE-F7-L8S"/>
+                            <constraint firstItem="HPb-cX-Q5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="c45-dH-YcJ"/>
                             <constraint firstItem="XGE-hi-znE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="clb-Bl-T6z"/>
                             <constraint firstItem="XGE-hi-znE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="eRa-h0-EBx"/>
+                            <constraint firstItem="gmt-yL-87j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fhP-cF-neq"/>
+                            <constraint firstItem="8pj-rM-KBD" firstAttribute="top" secondItem="gmt-yL-87j" secondAttribute="bottom" constant="8" id="ocG-s5-0t4"/>
+                            <constraint firstItem="HPb-cX-Q5b" firstAttribute="top" secondItem="gmt-yL-87j" secondAttribute="bottom" constant="37" id="pDy-WP-gbA"/>
                             <constraint firstItem="Y8H-OF-lhb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="u3J-ck-0DP"/>
                         </constraints>
                     </view>
@@ -156,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kE1-GJ-hz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="505"/>
+            <point key="canvasLocation" x="1024" y="505"/>
         </scene>
     </scenes>
 </document>
