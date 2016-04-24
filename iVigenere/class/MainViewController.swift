@@ -49,6 +49,9 @@ class MainViewController: UIViewController {
     self.tvInput.text = NSLocalizedString("textHere", tableName: "LocalizableStrings", comment: "textHere")
     self.tvOutput.text = ""
     
+    self.scCrypt.setTitle(NSLocalizedString("encrypt", tableName: "LocalizableStrings", comment: "encrypt"), forSegmentAtIndex: 0)
+    self.scCrypt.setTitle(NSLocalizedString("decrypt", tableName: "LocalizableStrings", comment: "decrypt"), forSegmentAtIndex: 1)
+    
     engine = Engine()
     engine.delegate = self;
     engine.startCreateMatrixProcess();
