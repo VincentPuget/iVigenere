@@ -1,4 +1,4 @@
-# vigenere
+# iVigenere
 Encrypt and decrypt text from with vigenere algorithm
 
 ## Firt launch
