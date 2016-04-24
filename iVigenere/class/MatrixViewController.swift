@@ -28,32 +28,19 @@ class MatrixViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated);
-//    self.view.wantsLayer = true
-//    self.view.layer?.backgroundColor = NSColor(calibratedRed: 69/255, green: 69/255, blue: 69/255, alpha: 1).CGColor
-//    
-//    self.viewBackground.layer?.backgroundColor = NSColor(calibratedRed: 35/255, green: 35/255, blue: 35/255, alpha: 1).CGColor
-//    
-//    self.tvMatrix.textColor = NSColor.whiteColor()
-//    self.tvMatrix.insertionPointColor = NSColor.whiteColor()
-//    
-//    let color = NSColor.grayColor()
-//    let attrs = [NSForegroundColorAttributeName: color]
-//    let placeHolderStr = NSAttributedString(string: NSLocalizedString("matrixName", tableName: "LocalizableStrings", comment: "Matrix name"), attributes: attrs)
-//    self.tfMatrixName.placeholderAttributedString = placeHolderStr
-//    self.tfMatrixName.focusRingType = NSFocusRingType.None
-//    let fieldEditor: NSTextView! = self.tfMatrixName.window?.fieldEditor(true, forObject: self.tfMatrixName) as! NSTextView
-//    fieldEditor.insertionPointColor = NSColor.whiteColor()
-//    
-//    let pstyle = NSMutableParagraphStyle()
-//    pstyle.alignment = NSTextAlignment.Center
-//    self.buttonValidate.attributedTitle = NSAttributedString(string: NSLocalizedString("save", tableName: "LocalizableStrings", comment: "Save"), attributes: [ NSForegroundColorAttributeName : NSColor.whiteColor(), NSParagraphStyleAttributeName : pstyle ])
-//    self.buttonCancel.attributedTitle = NSAttributedString(string: NSLocalizedString("cancel", tableName: "LocalizableStrings", comment: "Cancel"), attributes: [ NSForegroundColorAttributeName : NSColor.whiteColor(), NSParagraphStyleAttributeName : pstyle ])
-//    
-//    let widthConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 460)
-//    self.view.addConstraint(widthConstraint)
-//    
-//    let heightConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 260)
-//    self.view.addConstraint(heightConstraint)
+    
+    self.view.backgroundColor = UIColor(colorLiteralRed: 69/255, green: 69/255, blue: 69/255, alpha: 1)
+    self.tvMatrix.backgroundColor = UIColor(colorLiteralRed: 35/255, green: 35/255, blue: 35/255, alpha: 1)
+    self.tfMatrixName.backgroundColor = UIColor(colorLiteralRed: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+    
+    self.tfMatrixName.textColor = UIColor.whiteColor()
+    self.tvMatrix.textColor = UIColor.whiteColor()
+    
+    self.tfMatrixName.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("matrixName", tableName: "LocalizableStrings", comment: "Matrix name"), attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+  }
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.LightContent
   }
   
   override func viewDidLoad() {

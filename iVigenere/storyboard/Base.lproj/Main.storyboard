@@ -14,48 +14,68 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGE-hi-znE">
-                                <rect key="frame" x="329" y="41" width="43" height="30"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4RM-e6-f6c">
+                                <rect key="frame" x="16" y="73" width="343" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="IBA_scCrypt:" destination="BYZ-38-t0r" eventType="valueChanged" id="I0w-WA-y53"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGE-hi-znE">
+                                <rect key="frame" x="312" y="28" width="43" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="1ai-sI-5hc"/>
+                                    <constraint firstAttribute="height" constant="30" id="Y2b-5V-jyX"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Matrix"/>
                                 <connections>
-                                    <segue destination="Q5L-mD-EzX" kind="presentation" identifier="segue_MatrixViewController" id="zff-gd-43b"/>
+                                    <segue destination="Q5L-mD-EzX" kind="popoverPresentation" identifier="segue_MatrixViewController" popoverAnchorView="XGE-hi-znE" id="zff-gd-43b">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gmt-yL-87j">
-                                <rect key="frame" x="31" y="149" width="352" height="197"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gmt-yL-87j">
+                                <rect key="frame" x="23" y="197" width="332" height="167"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="2ys-Uc-9ko"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-cX-Q5b">
-                                <rect key="frame" x="31" y="416" width="352" height="197"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-cX-Q5b">
+                                <rect key="frame" x="20" y="420" width="335" height="197"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y8H-OF-lhb">
-                                <rect key="frame" x="196" y="86" width="97" height="30"/>
+                                <rect key="frame" x="20" y="135" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4RM-e6-f6c">
-                                <rect key="frame" x="20" y="28" width="246" height="29"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pj-rM-KBD">
+                                <rect key="frame" x="302" y="382" width="46" height="30"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="copy"/>
                                 <connections>
-                                    <action selector="IBA_scCrypt:" destination="BYZ-38-t0r" eventType="valueChanged" id="I0w-WA-y53"/>
+                                    <action selector="IBA_buttonCopy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q86-BX-Cnj"/>
                                 </connections>
-                            </segmentedControl>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="buttonCopy" destination="8pj-rM-KBD" id="mZX-ST-otz"/>
                         <outlet property="buttonMatrix" destination="XGE-hi-znE" id="jT5-NF-4DG"/>
                         <outlet property="scCrypt" destination="4RM-e6-f6c" id="qQk-pt-lbp"/>
                         <outlet property="tfKey" destination="Y8H-OF-lhb" id="8cB-Ak-lLl"/>
@@ -65,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="568" y="506"/>
+            <point key="canvasLocation" x="567.5" y="505.5"/>
         </scene>
         <!--Matrix View Controller-->
         <scene sceneID="NNq-8R-77g">
@@ -76,38 +96,40 @@
                         <viewControllerLayoutGuide type="bottom" id="U6c-Rn-2ah"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PMO-KG-fNX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vD7-Jy-9Kw">
-                                <rect key="frame" x="122" y="125" width="53" height="30"/>
-                                <state key="normal" title="Annuler"/>
-                                <connections>
-                                    <action selector="IBA_buttonCancel:" destination="Q5L-mD-EzX" eventType="touchUpInside" id="SUx-VZ-pvE"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSK-s1-Fbl">
-                                <rect key="frame" x="292" y="125" width="76" height="30"/>
+                                <rect key="frame" x="279" y="318" width="76" height="30"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Enregistrer"/>
                                 <connections>
                                     <action selector="IBA_buttonValidate:" destination="Q5L-mD-EzX" eventType="touchUpInside" id="YIq-Lf-ofR"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qdy-I9-eUO">
-                                <rect key="frame" x="42" y="211" width="352" height="197"/>
+                                <rect key="frame" x="20" y="100" width="335" height="210"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4y-a7-9Rd">
-                                <rect key="frame" x="42" y="173" width="97" height="30"/>
+                                <rect key="frame" x="20" y="52" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vD7-Jy-9Kw">
+                                <rect key="frame" x="20" y="318" width="53" height="30"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Annuler"/>
+                                <connections>
+                                    <action selector="IBA_buttonCancel:" destination="Q5L-mD-EzX" eventType="touchUpInside" id="SUx-VZ-pvE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="buttonCancel" destination="vD7-Jy-9Kw" id="Kj1-41-QtE"/>
                         <outlet property="buttonValidate" destination="RSK-s1-Fbl" id="FgT-Ju-Ytt"/>
@@ -117,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kE1-GJ-hz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="506"/>
+            <point key="canvasLocation" x="1209.5" y="505.5"/>
         </scene>
     </scenes>
 </document>

@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     
 
   @IBOutlet weak var buttonMatrix: UIButton!
+  @IBOutlet weak var buttonCopy: UIButton!
   
   
   @IBOutlet weak var scCrypt: UISegmentedControl!
@@ -28,14 +29,33 @@ class MainViewController: UIViewController {
   var textKey: String!
   var isEncrypt: Bool! = true
   
+  var firstEditingTvInput: Bool! = true;
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated);
     
+    self.view.backgroundColor = UIColor(colorLiteralRed: 69/255, green: 69/255, blue: 69/255, alpha: 1)
+    self.tvInput.backgroundColor = UIColor(colorLiteralRed: 35/255, green: 35/255, blue: 35/255, alpha: 1)
+    self.tvOutput.backgroundColor = UIColor(colorLiteralRed: 35/255, green: 35/255, blue: 35/255, alpha: 1)
+    self.tfKey.backgroundColor = UIColor(colorLiteralRed: 50/255, green: 50/255, blue: 50/255, alpha: 1)
     
+    self.tvInput.textColor = UIColor.whiteColor()
+    self.tvOutput.textColor = UIColor.whiteColor()
+    self.tfKey.textColor = UIColor.whiteColor()
+    
+    self.tfKey.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("key", tableName: "LocalizableStrings", comment: "key"), attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+    
+    
+    self.tvInput.text = NSLocalizedString("textHere", tableName: "LocalizableStrings", comment: "textHere")
+    self.tvOutput.text = ""
     
     engine = Engine()
     engine.delegate = self;
     engine.startCreateMatrixProcess();
+  }
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.LightContent
   }
     
   override func viewDidLoad() {
@@ -44,10 +64,6 @@ class MainViewController: UIViewController {
     self.tvInput.delegate = self
     self.tfKey.delegate = self
     
-    self.tvInput.text = NSLocalizedString("textHere", tableName: "LocalizableStrings", comment: "textHere")
-    self.tvOutput.text = ""
-    
-    self.tvInput.becomeFirstResponder()
     
     self.tfKey.addTarget(self, action: #selector(UITextInputDelegate.textDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
   }
@@ -61,7 +77,11 @@ class MainViewController: UIViewController {
     }//fin if
   }
   
-
+  @IBAction func IBA_buttonCopy(sender: AnyObject) {
+    let pasteboard = UIPasteboard.generalPasteboard()
+    pasteboard.string = self.tvOutput.text
+  }
+  
   @IBAction func IBA_scCrypt(sender: AnyObject) {
     let scTmp:UISegmentedControl! = sender as! UISegmentedControl
     switch scTmp.selectedSegmentIndex
@@ -89,14 +109,13 @@ extension MainViewController {
     {
       UIAlertAction in
       NSLog("OK Pressed")
-      //self.performSegueWithIdentifier("segue_MatrixViewController", sender: self)
+      self.performSegueWithIdentifier("segue_MatrixViewController", sender: self)
     }
     
     let cancelAction:UIAlertAction! = UIAlertAction(title: NSLocalizedString("cancel", tableName: "LocalizableStrings", comment: "cancel"), style: UIAlertActionStyle.Default)
     {
       UIAlertAction in
       NSLog("cancel Pressed")
-      //self.performSegueWithIdentifier("segue_MatrixViewController", sender: self)
     }
     alertController.addAction(cancelAction)
     alertController.addAction(okAction)
@@ -125,6 +144,18 @@ extension MainViewController: UITextViewDelegate {
   func textViewDidChange(textView: UITextView)
   {
     self.tvHandler(textView)
+  }
+  func textViewDidEndEditing(textView: UITextView) {
+    if(textView == self.tvInput && self.tvInput.text == ""){
+      firstEditingTvInput = true
+      self.tvInput.text = NSLocalizedString("textHere", tableName: "LocalizableStrings", comment: "textHere")
+    }
+  }
+  func textViewDidBeginEditing(textView: UITextView) {
+    if(textView == self.tvInput && firstEditingTvInput){
+      firstEditingTvInput = false
+      self.tvInput.text = ""
+    }
   }
 }
 
