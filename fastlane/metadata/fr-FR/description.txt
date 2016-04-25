@@ -1,0 +1,12 @@
+Application de chiffrement de données utilisant l'algorithme de Vigenère.
+
+Entrez-du texte, une clé de cryptage et obtenez le texte encodé en fonction de cette clé !
+Entrez du texte préalablement encodé avec cette application, la clé de cryptage et obtenez le texte en clair !
+
+La matrice de cryptage est modifiable ci besoin. Vous pouvez-donc rajouter ou supprimer des caractères à votre guise.
+
+Application à utiliser à vos propres risques. 
+La meilleurs façon de protéger une information reste de ne pas la diffuser. 
+Il n'existe aucun moyen de récupérer la clé de cryptage si vous l'oubliez.
+
+Information sur le fonctionnement de l'algorithme de Vigenère : https://fr.wikipedia.org/wiki/Chiffre_de_Vigenère
