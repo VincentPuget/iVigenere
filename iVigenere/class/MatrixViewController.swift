@@ -10,7 +10,7 @@ import UIKit
 
 protocol MatrixProtocol
 {
-    func matrixIsAvailable(isAvailable:Bool!) -> Void
+    func matrixIsAvailable(_ isAvailable:Bool!) -> Void
 }
 
 class MatrixViewController: UIViewController {
@@ -26,24 +26,24 @@ class MatrixViewController: UIViewController {
   var isNewMatrix:Bool! = true;
   var matrixObj:Matrix!;
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated);
     
     self.view.backgroundColor = UIColor(colorLiteralRed: 69/255, green: 69/255, blue: 69/255, alpha: 1)
     self.tvMatrix.backgroundColor = UIColor(colorLiteralRed: 35/255, green: 35/255, blue: 35/255, alpha: 1)
     self.tfMatrixName.backgroundColor = UIColor(colorLiteralRed: 50/255, green: 50/255, blue: 50/255, alpha: 1)
     
-    self.tfMatrixName.textColor = UIColor.whiteColor()
-    self.tvMatrix.textColor = UIColor.whiteColor()
+    self.tfMatrixName.textColor = UIColor.white
+    self.tvMatrix.textColor = UIColor.white
     
-    self.tfMatrixName.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("matrixName", tableName: "LocalizableStrings", comment: "Matrix name"), attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+    self.tfMatrixName.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("matrixName", tableName: "LocalizableStrings", comment: "Matrix name"), attributes:[NSForegroundColorAttributeName: UIColor.gray])
     
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.dismissKeyboard))
     view.addGestureRecognizer(tap)
   }
   
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return UIStatusBarStyle.LightContent
+  override var preferredStatusBarStyle : UIStatusBarStyle {
+    return UIStatusBarStyle.lightContent
   }
   
   override func viewDidLoad() {
@@ -72,11 +72,11 @@ class MatrixViewController: UIViewController {
     self.view.endEditing(true)
   }
   
-  @IBAction func IBA_buttonCancel(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: {})
+  @IBAction func IBA_buttonCancel(_ sender: AnyObject) {
+    self.dismiss(animated: true, completion: {})
   }
   
-  @IBAction func IBA_buttonValidate(sender: AnyObject) {
+  @IBAction func IBA_buttonValidate(_ sender: AnyObject) {
     var saveIsOk = false;
     if(self.isNewMatrix == true)
     {
@@ -87,7 +87,7 @@ class MatrixViewController: UIViewController {
     }
     
     self.delegate.matrixIsAvailable(saveIsOk)
-    self.dismissViewControllerAnimated(true, completion: {})
+    self.dismiss(animated: true, completion: {})
   }
 }
 

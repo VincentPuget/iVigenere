@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
   
   var firstEditingTvInput: Bool! = true;
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated);
     
     self.view.backgroundColor = UIColor(colorLiteralRed: 69/255, green: 69/255, blue: 69/255, alpha: 1)
@@ -39,18 +39,18 @@ class MainViewController: UIViewController {
     self.tvOutput.backgroundColor = UIColor(colorLiteralRed: 35/255, green: 35/255, blue: 35/255, alpha: 1)
     self.tfKey.backgroundColor = UIColor(colorLiteralRed: 50/255, green: 50/255, blue: 50/255, alpha: 1)
     
-    self.tvInput.textColor = UIColor.whiteColor()
-    self.tvOutput.textColor = UIColor.whiteColor()
-    self.tfKey.textColor = UIColor.whiteColor()
+    self.tvInput.textColor = UIColor.white
+    self.tvOutput.textColor = UIColor.white
+    self.tfKey.textColor = UIColor.white
     
-    self.tfKey.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("key", tableName: "LocalizableStrings", comment: "key"), attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+    self.tfKey.attributedPlaceholder = NSAttributedString(string:NSLocalizedString("key", tableName: "LocalizableStrings", comment: "key"), attributes:[NSForegroundColorAttributeName: UIColor.gray])
     
     
     self.tvInput.text = NSLocalizedString("textHere", tableName: "LocalizableStrings", comment: "textHere")
     self.tvOutput.text = ""
     
-    self.scCrypt.setTitle(NSLocalizedString("encrypt", tableName: "LocalizableStrings", comment: "encrypt"), forSegmentAtIndex: 0)
-    self.scCrypt.setTitle(NSLocalizedString("decrypt", tableName: "LocalizableStrings", comment: "decrypt"), forSegmentAtIndex: 1)
+    self.scCrypt.setTitle(NSLocalizedString("encrypt", tableName: "LocalizableStrings", comment: "encrypt"), forSegmentAt: 0)
+    self.scCrypt.setTitle(NSLocalizedString("decrypt", tableName: "LocalizableStrings", comment: "decrypt"), forSegmentAt: 1)
     
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.dismissKeyboard))
     view.addGestureRecognizer(tap)
@@ -60,8 +60,8 @@ class MainViewController: UIViewController {
     engine.startCreateMatrixProcess();
   }
   
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return UIStatusBarStyle.LightContent
+  override var preferredStatusBarStyle : UIStatusBarStyle {
+    return UIStatusBarStyle.lightContent
   }
     
   override func viewDidLoad() {
@@ -71,28 +71,28 @@ class MainViewController: UIViewController {
     self.tfKey.delegate = self
     
     
-    self.tfKey.addTarget(self, action: #selector(UITextInputDelegate.textDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+    self.tfKey.addTarget(self, action: #selector(UITextInputDelegate.textDidChange(_:)), for: UIControlEvents.editingChanged)
   }
   
   func dismissKeyboard() {
     self.view.endEditing(true)
   }
   
-  override func prepareForSegue(segue:(UIStoryboardSegue!), sender: AnyObject!)
+  override func prepare(for segue:(UIStoryboardSegue!), sender: Any!)
   {
     if (segue.identifier == "segue_MatrixViewController")
     {
-      let matrixViewController:MatrixViewController! = segue.destinationViewController as! MatrixViewController;
+      let matrixViewController:MatrixViewController! = segue.destination as! MatrixViewController;
       matrixViewController.delegate = self
     }//fin if
   }
   
-  @IBAction func IBA_buttonCopy(sender: AnyObject) {
-    let pasteboard = UIPasteboard.generalPasteboard()
+  @IBAction func IBA_buttonCopy(_ sender: AnyObject) {
+    let pasteboard = UIPasteboard.general
     pasteboard.string = self.tvOutput.text
   }
   
-  @IBAction func IBA_scCrypt(sender: AnyObject) {
+  @IBAction func IBA_scCrypt(_ sender: AnyObject) {
     let scTmp:UISegmentedControl! = sender as! UISegmentedControl
     switch scTmp.selectedSegmentIndex
     {
@@ -114,15 +114,15 @@ extension MainViewController {
   
   func alertMatrixEmpty()
   {
-    let alertController:UIAlertController! = UIAlertController(title: "iVigenere", message: NSLocalizedString("alertMatrixIsEmpty", tableName: "LocalizableStrings", comment: "alertMatrixIsEmpty"), preferredStyle: .Alert)
-    let okAction:UIAlertAction! = UIAlertAction(title: NSLocalizedString("ok", tableName: "LocalizableStrings", comment: "ok"), style: UIAlertActionStyle.Default)
+    let alertController:UIAlertController! = UIAlertController(title: "iVigenere", message: NSLocalizedString("alertMatrixIsEmpty", tableName: "LocalizableStrings", comment: "alertMatrixIsEmpty"), preferredStyle: .alert)
+    let okAction:UIAlertAction! = UIAlertAction(title: NSLocalizedString("ok", tableName: "LocalizableStrings", comment: "ok"), style: UIAlertActionStyle.default)
     {
       UIAlertAction in
       NSLog("OK Pressed")
-      self.performSegueWithIdentifier("segue_MatrixViewController", sender: self)
+      self.performSegue(withIdentifier: "segue_MatrixViewController", sender: self)
     }
     
-    let cancelAction:UIAlertAction! = UIAlertAction(title: NSLocalizedString("cancel", tableName: "LocalizableStrings", comment: "cancel"), style: UIAlertActionStyle.Default)
+    let cancelAction:UIAlertAction! = UIAlertAction(title: NSLocalizedString("cancel", tableName: "LocalizableStrings", comment: "cancel"), style: UIAlertActionStyle.default)
     {
       UIAlertAction in
       NSLog("cancel Pressed")
@@ -131,37 +131,37 @@ extension MainViewController {
     alertController.addAction(okAction)
   }
   
-  func tfHandler(textField: UITextField){
+  func tfHandler(_ textField: UITextField){
     engine.encryptOrDecrypt(self.tvInput.text, key: self.tfKey.text , isEncrypt: self.isEncrypt)
   }
-  func tvHandler(textView: UITextView){
+  func tvHandler(_ textView: UITextView){
     engine.encryptOrDecrypt(textView.text, key: self.tfKey.text , isEncrypt: self.isEncrypt)
   }
   
 }
 
 extension MainViewController:UITextFieldDelegate {
-  func textDidChange(textField: UITextField) {
+  func textDidChange(_ textField: UITextField) {
     self.tfHandler(textField)
   }
   
-  func textFieldDidEndEditing(textField: UITextField) {
+  func textFieldDidEndEditing(_ textField: UITextField) {
     self.tfHandler(textField)
   }
 }
 
 extension MainViewController: UITextViewDelegate {
-  func textViewDidChange(textView: UITextView)
+  func textViewDidChange(_ textView: UITextView)
   {
     self.tvHandler(textView)
   }
-  func textViewDidEndEditing(textView: UITextView) {
+  func textViewDidEndEditing(_ textView: UITextView) {
     if(textView == self.tvInput && self.tvInput.text == ""){
       firstEditingTvInput = true
       self.tvInput.text = NSLocalizedString("textHere", tableName: "LocalizableStrings", comment: "textHere")
     }
   }
-  func textViewDidBeginEditing(textView: UITextView) {
+  func textViewDidBeginEditing(_ textView: UITextView) {
     if(textView == self.tvInput && firstEditingTvInput){
       firstEditingTvInput = false
       self.tvInput.text = ""
@@ -172,7 +172,7 @@ extension MainViewController: UITextViewDelegate {
 extension MainViewController: EngineProtocol{
   func matrixNotExist()
   {
-    L.v("matrixIsEmpty");
+    L.v("matrixIsEmpty" as AnyObject!);
     self.alertMatrixEmpty()
   }
   
@@ -184,7 +184,7 @@ extension MainViewController: EngineProtocol{
     engine.encryptOrDecrypt(self.tvInput.text, key: self.tfKey.text , isEncrypt: self.isEncrypt)
   }
   
-  func outputUpdated(output:String!)
+  func outputUpdated(_ output:String!)
   {
     self.tvOutput.text = output
   }
@@ -192,7 +192,7 @@ extension MainViewController: EngineProtocol{
 
 extension MainViewController: MatrixProtocol {
     
-  func matrixIsAvailable(isAvailable:Bool!) -> Void
+  func matrixIsAvailable(_ isAvailable:Bool!) -> Void
   {
     if(isAvailable == true)
     {
